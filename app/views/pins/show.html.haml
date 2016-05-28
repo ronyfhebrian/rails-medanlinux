@@ -1,10 +1,19 @@
-= image_tag @pin.image.url(:medium)
-%h1= @pin.title
-%p= @pin.description
-%p
-Submitted by
-= @pin.user.email
-%br/
-= link_to "Back", root_path
-= link_to "Edit", edit_pin_path
-= link_to "Hapus", pin_path, method: :delete, data: { confirm: "Apakah Kamu Yakin? "}
+#pin_show.row
+  .col-md-8.col-md.offset-2
+    .panel.panel-default
+      .panel.panel-heading
+        = image_tag @pin.image.url(:medium), style: "display: block; margin: 0 auto"
+      .panel-body
+        %h1= @pin.title
+        %p= @pin.description
+      .panel-footer
+        .row
+          .col-md-6
+            %p
+            Submitted by
+            = @pin.user.email
+            %br/
+          .col-md-6
+            .btn-group.pull-right
+              = link_to "Edit", edit_pin_path, class: "btn btn-default"
+              = link_to "Hapus", pin_path, class: "btn btn-default", method: :delete, data: { confirm: "Apakah Kamu Yakin? "}
