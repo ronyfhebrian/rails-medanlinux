@@ -15,5 +15,8 @@
             %br/
           .col-md-6
             .btn-group.pull-right
+              = link_to like_pin_path(@pin), method: :put, class: "btn btn-default" do
+                %span.glyphicon.glyphicon-heart
+                  = @pin.get_upvotes.size
               = link_to "Edit", edit_pin_path, class: "btn btn-default"
               = link_to "Hapus", pin_path, class: "btn btn-default", method: :delete, data: { confirm: "Apakah Kamu Yakin? "}
